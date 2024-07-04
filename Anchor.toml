@@ -1,0 +1,31 @@
+[toolchain]
+
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+launchpad = "9L83XgZMdX1Sj52WPkLE5HoHd3Ygp8xRUTqWS2Vx9cF6"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "testnet"
+wallet = "./id.json"
+
+[scripts]
+deploy = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 scripts/depoly.ts"
+
+[test]
+startup_wait = 5000
+shutdown_wait = 2000
+upgradeable = false
+
+[[test.genesis]]
+address = "VRFzZoJdhFWL8rkvu87LpKM3RbcVezpMEc6X5GVDr7y"
+program = "./test-libs/orao.so"
+
+[[test.genesis]]
+address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+program = "./test-libs/metadata.so"
